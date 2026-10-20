@@ -27,3 +27,12 @@ export function shortDate(iso: string): string {
   const d = new Date(`${iso}T00:00:00Z`)
   return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' })
 }
+
+/** Upcoming sessions soonest first and past sessions most recent first, as of a given day. */
+export function splitByDate(talks: Talk[], now: Date): { upcoming: Talk[]; past: Talk[] } {
+  const today = now.toISOString().slice(0, 10)
+  return {
+    upcoming: talks.filter(t => t.date >= today).sort((a, b) => a.date.localeCompare(b.date)),
+    past: talks.filter(t => t.date < today).sort((a, b) => b.date.localeCompare(a.date)),
+  }
+}

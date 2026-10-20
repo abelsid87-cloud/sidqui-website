@@ -1,15 +1,18 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
+import NoteRows from '@/components/NoteRows'
+import TalkRows from '@/components/TalkRows'
 import { getPublishedNotes } from '@/lib/notes'
 import { pageMetadata } from '@/lib/seo'
-import { ROLES, SITE } from '@/lib/site'
-import { TALKS, shortDate } from '@/lib/talks'
+import { CONTACT_TEXT, NOTES_INTRO, ROLES, SITE, TALKS_INTRO } from '@/lib/site'
+import { TALKS } from '@/lib/talks'
 
 export const metadata: Metadata = pageMetadata({ title: SITE.name, description: SITE.definition, path: '/' })
 
 export default function HomePage() {
   const notes = getPublishedNotes().slice(0, 5)
+  const talks = TALKS.slice(0, 3)
   return (
     <>
       <header className="hero">
@@ -43,40 +46,30 @@ export default function HomePage() {
         <section className="section" id="notes" aria-labelledby="notes-title">
           <div className="section-head">
             <h2 className="section-title" id="notes-title">Notes</h2>
-            <p className="section-intro">Short pieces on how data centers are planned, designed and delivered, drawn from my work in the Middle East and Africa.</p>
+            <div className="section-aside">
+              <p className="section-intro">{NOTES_INTRO}</p>
+              <Link className="ext" href="/notes">All notes</Link>
+            </div>
           </div>
-          {notes.map(note => (
-            <Link className="row" href={`/notes/${note.slug}`} key={note.slug}>
-              <div><h3>{note.title}</h3><p>{note.summary}</p></div>
-            </Link>
-          ))}
+          <NoteRows notes={notes} />
         </section>
       )}
 
       <section className="section" id="talks" aria-labelledby="talks-title">
         <div className="section-head">
           <h2 className="section-title" id="talks-title">Talks</h2>
-          <p className="section-intro">Talks and panels, most recent first. Biographies for organisers are on the <Link href="/about">About page</Link>.</p>
+          <div className="section-aside">
+            <p className="section-intro">{TALKS_INTRO}</p>
+            <Link className="ext" href="/talks">All talks</Link>
+          </div>
         </div>
-        {TALKS.map(talk =>
-          talk.href ? (
-            <a className="row" href={talk.href} key={talk.title}>
-              <div><h3>{talk.title}</h3><p>{talk.format}, {talk.event}, {talk.city}</p></div>
-              <span className="m">{shortDate(talk.date)}</span>
-            </a>
-          ) : (
-            <div className="row" key={talk.title}>
-              <div><h3>{talk.title}</h3><p>{talk.format}, {talk.event}, {talk.city}</p></div>
-              <span className="m">{shortDate(talk.date)}</span>
-            </div>
-          ),
-        )}
+        <TalkRows talks={talks} />
       </section>
 
       <section className="contact" id="contact" aria-labelledby="contact-title">
         <p className="mono eyebrow" id="contact-title">Contact</p>
         <a className="contact-email" href={`mailto:${SITE.email}`}>{SITE.email}</a>
-        <p>Email me about board and advisory roles, speaking invitations, press questions or a data center project. <a href={SITE.linkedin}>LinkedIn</a> is for shorter messages.</p>
+        <p>{CONTACT_TEXT} <a href={SITE.linkedin}>LinkedIn</a> is for shorter messages.</p>
       </section>
     </>
   )

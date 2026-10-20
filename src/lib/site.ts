@@ -58,3 +58,10 @@ export const HEADSHOTS = [
   { href: '/downloads/abdelilah-sidqui-headshot-800.jpg', label: '800 px, for programmes and web' },
   { href: '/downloads/abdelilah-sidqui-headshot-full.jpg', label: 'Full size, for print' },
 ]
+
+/** The sections' standing texts: in his voice on the pages, in the third person for search engines and the feed. */
+export const NOTES_INTRO = 'Short pieces on how data centers are planned, designed and delivered, drawn from my work in the Middle East and Africa.'
+export const NOTES_DESCRIPTION = 'Short pieces by Abdelilah Sidqui on how data centers are planned, designed and delivered, drawn from his work in the Middle East and Africa.'
+export const TALKS_INTRO = 'Panels and talks on how data centers are powered, cooled and delivered in the Middle East and Africa. Boardroom sessions are private and are not listed.'
+export const TALKS_DESCRIPTION = 'Panels and talks by Abdelilah Sidqui on how data centers are powered, cooled and delivered in the Middle East and Africa.'
+export const CONTACT_TEXT = 'Email me about board and advisory roles, speaking invitations, press questions or a data center project.'

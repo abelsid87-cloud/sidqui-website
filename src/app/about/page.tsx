@@ -4,11 +4,7 @@ import CopyButton from '@/components/CopyButton'
 import { pageMetadata } from '@/lib/seo'
 import { BIO_LONG, BIO_SHORT, EDUCATION, HEADSHOTS, LANGUAGES, SITE } from '@/lib/site'
 
-export const metadata: Metadata = pageMetadata({
-  title: 'About',
-  description: BIO_SHORT,
-  path: '/about',
-})
+export const metadata: Metadata = pageMetadata({ title: 'About', description: BIO_SHORT, path: '/about' })
 
 /** The long biography, the facts an organiser or a committee asks for, and the kit to copy from. */
 export default function AboutPage() {
@@ -18,8 +14,8 @@ export default function AboutPage() {
         <div>
           <p className="mono eyebrow">About</p>
           <h1 className="page-title">{SITE.name}</h1>
-          <div className="reading" style={{ marginTop: 28 }}>
-            {BIO_LONG.map(paragraph => <p key={paragraph.slice(0, 24)} style={{ fontSize: 18, lineHeight: 1.6 }}>{paragraph}</p>)}
+          <div className="reading about-bio">
+            {BIO_LONG.map(paragraph => <p key={paragraph.slice(0, 24)}>{paragraph}</p>)}
           </div>
         </div>
         <div className="portrait">
@@ -28,7 +24,7 @@ export default function AboutPage() {
       </header>
 
       <section className="section" aria-labelledby="facts-title">
-        <h2 className="section-title" id="facts-title" style={{ fontSize: 32, marginBottom: 24 }}>Record</h2>
+        <h2 className="section-title sm" id="facts-title">Record</h2>
         <ul className="facts">
           <li><span>Now</span><span>Co-founder and Managing Partner, UBIK, Dubai, since 2019. Independent data center engineering consultancy for owners, developers, operators, investors and contractors.</span></li>
           <li><span>Board</span><span>Board Director, African Digital Infrastructure Investments (ADII).</span></li>
@@ -39,9 +35,9 @@ export default function AboutPage() {
         </ul>
       </section>
 
-      <section className="section" aria-labelledby="kit-title">
+      <section className="section" id="organisers" aria-labelledby="kit-title">
         <div className="section-head">
-          <h2 className="section-title" id="kit-title" style={{ fontSize: 32 }}>For organisers</h2>
+          <h2 className="section-title sm" id="kit-title">For organisers</h2>
           <p className="section-intro">Two biographies in the third person and the headshot, to use unchanged in a programme, a nomination or a press piece.</p>
         </div>
         <div className="kit">
