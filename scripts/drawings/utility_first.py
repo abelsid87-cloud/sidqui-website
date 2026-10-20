@@ -19,7 +19,7 @@ ROW2 = [
     (("Outage", "record"), ("Frequency, duration,", "the longest outage", "on the feeder.")),
     (("Generator", "duty"), ("Regular running under", "load is prime duty,", "not standby.")),
     (("Autonomy",), ("Longest credible", "outage plus the time", "to the next delivery.")),
-    (("Fuel", "on site"), ("About 6,000 litres", "per MW-day, as a", "rule of thumb.")),
+    (("Fuel", "on site"), ("About 6,500 litres", "per MW-day, as a", "rule of thumb.")),
     (("Tanks",), ("Space, tanker access,", "distance from the", "public edge.")),
 ]
 

@@ -7,7 +7,7 @@ drawing: two-loops
 drawingCaption: "Figure 01. A liquid-cooled hall and its two loops. The warm loop has three ways out and the chilled loop one. At the summer peak the dry cooler drops out, and the choice left is water or power. Typical arrangement, no project."
 ---
 
-Direct liquid cooling changes where the heat of an AI hall goes, but it does not change the Gulf summer. Cold plates run on much warmer water than an air-cooled hall needs, so the plant can reject heat without compressors for more hours of the year. At the summer peak, with the dry-bulb above 45 °C and the wet-bulb above 30 °C, a dry cooler alone can no longer carry the load. The heat then leaves through compressors, which spend power, or through evaporation, which spends water. The owner is choosing between kWh and litres, and the brief should say which.
+Direct liquid cooling changes where the heat of an AI hall goes, but it does not change the Gulf summer. Cold plates run on much warmer water than an air-cooled hall needs, so the plant can reject heat without compressors for more hours of the year. At the summer peak, with the dry-bulb above 45 °C and the wet-bulb above 30 °C, a dry cooler alone carries the load only if the cold plates accept coolant hotter than the outdoor air. Otherwise the heat leaves through compressors, which spend power, or through evaporation, which spends water. The owner is choosing between kWh and litres, and the brief should say which.
 
 ## What warm water buys
 
@@ -17,7 +17,7 @@ The hours of that gain depend on the supply temperature the IT vendor allows, th
 
 ## Where the summer stops it
 
-A dry cooler cannot return water cooler than the air passing over it, and in a Gulf summer that air is above 45 °C. For a dry cooler to carry the peak alone, the cold plates would have to accept coolant hotter than the outdoor air. The margin needed is the approach of the dry cooler plus that of the coolant distribution unit. I ask the IT vendor in writing whether its equipment accepts that at full load.
+A dry cooler cannot return water cooler than the air passing over it, and on the hottest Gulf days that air is above 45 °C. For a dry cooler to carry the peak alone, the cold plates would have to accept coolant hotter than the outdoor air. The margin needed is the approach of the dry cooler plus that of the coolant distribution unit. I ask the IT vendor in writing whether its equipment accepts that at full load.
 
 An evaporative tower cools water towards the wet-bulb but never reaches it. With the wet-bulb above 30 °C, a tower can still serve a warm loop at the peak, if the facility water may run several degrees above the wet-bulb. The cost is water. Evaporating one litre absorbs about 2.4 MJ, so a tower rejecting 1 MW by evaporation alone loses roughly 1,500 litres an hour, before blowdown. Where the mains water is desalinated, each of those litres has already cost energy before it reaches the site.
 
@@ -25,7 +25,7 @@ Compressors spend power instead. They are sized for the hottest hour, and so is 
 
 ## The air system stays
 
-A liquid-cooled rack still rejects part of its heat to air. The cold plates take the processors and accelerators, while memory, power supplies, drives and switches are often still cooled by fans. Storage and network rows are usually air-cooled outright. The share depends on the server, and I ask the vendor for it. The liquid-cooled facility my firm designed in the UAE therefore has two loops, a warm one for the coolant distribution units and a conventional one for the air.
+A liquid-cooled rack still rejects part of its heat to air. The cold plates take the processors and accelerators, while memory, power supplies, drives and switches are often still cooled by fans. Storage and network rows are usually air-cooled outright. The share depends on the server, and I ask the vendor for it. The design my firm produced for a liquid-cooled facility in the UAE therefore has two loops, a warm one for the coolant distribution units and a conventional one for the air.
 
 That air must reach the IT within the ASHRAE recommended range: 18 to 27 °C for classes A1 to A4, and 18 to 22 °C for class H1, added in 2021 for high-density air-cooled equipment. The coil water must be colder than the air it produces. In a Gulf summer neither a tower nor a dry cooler makes water below the wet-bulb, so the air side runs on compressors through the hot months. A rear-door heat exchanger moves the coil to the rack under the same limit.
 
