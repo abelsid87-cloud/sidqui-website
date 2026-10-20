@@ -21,8 +21,10 @@ function read(slug: string): Note | null {
   const file = path.join(NOTES_DIR, `${slug}.mdx`)
   if (!fs.existsSync(file)) return null
   const { data, content } = matter(fs.readFileSync(file, 'utf8'))
-  if (typeof data.title !== 'string' || typeof data.summary !== 'string' || typeof data.date !== 'string') return null
-  return { slug, title: data.title, summary: data.summary, date: data.date, draft: data.draft === true, content }
+  // YAML reads an unquoted 2026-10-20 as a Date; either form is accepted and kept as the ISO day.
+  const date = data.date instanceof Date ? data.date.toISOString().slice(0, 10) : data.date
+  if (typeof data.title !== 'string' || typeof data.summary !== 'string' || typeof date !== 'string') return null
+  return { slug, title: data.title, summary: data.summary, date, draft: data.draft === true, content }
 }
 
 /** Published notes, newest first. Drafts never leave the content folder. */

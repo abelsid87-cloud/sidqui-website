@@ -1,8 +1,48 @@
 ---
 title: In Africa, a data center brief starts with the utility, not the IT load
 summary: Phasing follows the capacity the utility commits to in writing, and generator autonomy and fuel storage follow its outage record.
-date: 2026-12-01
-draft: true
+date: 2026-10-20
+draft: false
 ---
 
-[Draft. The title and the summary are a proposal; the piece is to be written in Abdelilah Sidqui's own words. Delete this file or set draft to false once it is.]
+In the African markets I work in, a data center brief that starts from the IT load starts from a wish. The load is what the business case hopes to sell. The fact is what the utility has committed to in writing: the capacity, the voltage, the point of connection and the date. The phases follow the capacity and the dates the utility has signed for, and the generator autonomy and the fuel storage follow its outage record.
+
+## Five documents, five commitments
+
+A utility issues several documents over the life of a project, and each commits it to something different. I have set them out in more detail [on ubik.ae](https://ubik.ae/insights/utility-documents-what-they-commit). In short:
+
+- A capacity letter says capacity may be available, and typically reserves nothing: no date, voltage, point of connection or cost.
+- A connection offer, issued after the utility’s system studies, states the point of connection, voltage, capacity, works, cost and programme, but reserves nothing until it is accepted and the security paid.
+- A connection agreement commits the capacity by agreed dates. It rarely commits to continuity of supply, and the owner’s charges can start on signature.
+- An energisation certificate records supply at the boundary, sometimes below the contracted capacity until reinforcement is complete.
+- A supply contract sets the tariff and the contracted demand, and does not promise uninterrupted supply.
+
+The names vary between countries. The main risk does not: land bought, or an investment case approved, on a letter that never reserved anything.
+
+## Phases follow the signed capacity
+
+I draw the first phase to the capacity the utility has committed to in writing, by its date. Later phases follow the later dates in the agreement and the reinforcement works those dates depend on. Where an offer is staged, or part of it is non-firm, the generators are the firm source for that part. The contracted demand should follow the IT load ramp rather than the final capacity, or the owner pays demand charges on megawatts it does not use.
+
+On two West African campus studies, we kept a register for each site. It recorded what had been requested, what had been confirmed in writing, what the utility’s reinforcement depended on, and what the operator would do if the date slipped by a year.
+
+## The outage record sets the fuel
+
+Uptime Institute’s Tier Standard: Topology treats the engine-generator plant as the primary power source of a data center, and the utility as an economic alternative. A weak grid therefore does not prevent a Tier objective. It changes the hours the generators run, the fuel stored on site, the emissions permit and the operating cost.
+
+I size those from the outage record of the feeder or substation that will serve the site: how often it fails, for how long, and the longest outage on record. A generator that runs regularly under load is on prime duty, not standby duty, and its rating, maintenance intervals and permit are chosen for that. As a rule of thumb, a diesel set near full load burns about a quarter of a litre per kWh. A day of autonomy at one megawatt of facility load therefore needs roughly 6,000 litres.
+
+Autonomy is then a logistics question. Storage has to cover the longest credible outage plus the time to bring in the next delivery. That delivery comes by road, sometimes in the rainy season, from a supplier who in a wide outage is serving every other generator in the city. On a constrained plot, the tanks need space, tanker access and distance from the public edge.
+
+## What I ask the utility before the first drawing
+
+- The substation, the voltage and the number of incoming circuits, and whether they come from separate busbar sections or substations.
+- The capacity reserved for the site, in which document, until which date, and whether it is firm.
+- The reinforcement works the date depends on, who funds them, and their programme.
+- The outage record of the feeder over several years, planned and unplanned, with durations and any load-shedding schedule.
+- The design fault level, the power factor band and the harmonic limits the installation must meet.
+
+## What an investor should see
+
+I also sit on the board of an investor in African digital infrastructure. As a director, I find the IT load forecast the least verifiable number in a proposal. Before capital is committed, I want the utility file: each document with its date, its conditions and the phase it supports. I want the generator hours and the fuel cost that follow from the outage record carried into the operating cost. A study that reports a capacity without saying whether the utility has committed to it, and for which year, has left the main risk open.
+
+Start the brief with the utility. Apply for the connection before the design is frozen, record each document with an owner and a date, size the first phase to what is signed, and size the fuel to the outage record and the road. Then fit the IT load to the facility the site can power.

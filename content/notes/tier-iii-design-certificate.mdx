@@ -1,8 +1,47 @@
 ---
 title: A Tier III design certificate is not a Tier III facility
 summary: Uptime Institute certifies the design, the constructed facility and its operation separately, and an investor should ask which one an announcement means.
-date: 2026-11-15
-draft: true
+date: 2026-10-20
+draft: false
 ---
 
-[Draft. The title and the summary are a proposal; the piece is to be written in Abdelilah Sidqui's own words. Delete this file or set draft to false once it is.]
+An announcement that a data center is “Tier III certified” can mean three different things. Uptime Institute certifies the design, the constructed facility and its operation in three separate assessments, and one does not imply the others. A design certificate says the drawings would meet Tier III if the facility were built as drawn. It says nothing about what was built or how it runs. An investor, a buyer or a tenant should establish which certificate an announcement refers to, and for which phase.
+
+## What each certificate proves
+
+Tier III means concurrent maintainability. Every capacity component and every distribution path can be removed from service on a planned basis without affecting the IT load. Each certificate tests that behaviour on a different object.
+
+Tier Certification of Design Documents assesses the single-line diagrams, the cooling schematics, the control narratives and the calculations, path by path and state by state. It proves the design is concurrently maintainable on paper. It does not prove that the contractor built that design, that the controls behave as narrated, or that the equipment delivered is the equipment drawn.
+
+Tier Certification of Constructed Facility assesses the facility as built. It includes demonstrations on site, under the assessor’s witness, in which paths are taken out of service and elements failed where the objective requires, with the load supported throughout. It confirms that the building behaves as the certified design said it would. It applies to a defined installation, so a phased campus can hold it for one phase and not for the next.
+
+Tier Certification of Operational Sustainability assesses the management, staffing, maintenance and operating practices that keep that behaviour over the life of the facility. None of the three is an uptime percentage. Uptime Institute removed its expected downtime references in 2009, because operations and other factors dominate real outcomes.
+
+## Where the topology is lost
+
+Most of the risk lies between the first two certificates. Once the design is certified, procurement and construction bring value-engineering proposals, substitutions and re-routed distribution. Two chillers on a common header with an isolation valve removed are one chiller for maintenance purposes. Two UPS systems re-fed from one low-voltage board share that board’s outage. A control sequence moved onto one controller makes that controller a single point of failure.
+
+None of this appears on the design certificate. It appears at the constructed-facility demonstrations or, if they never take place, in the first maintenance window that goes wrong.
+
+Operation opens a third gap. When I assess facilities that have grown by addition, I find single points of failure that nobody designed: a header that now serves two halls, a board that feeds both paths, a bypass left in place after maintenance. Load growth does it more quietly. Redundant plant stops being redundant once the load exceeds what the plant can carry with one unit out of service.
+
+## What I ask before relying on it
+
+Uptime Institute publishes the certifications it has awarded, and I check that list first. Then I ask for:
+
+- the certificate itself, with its type, its date, the phase and the installed capacity it covers;
+- the changes made after the design certificate, and the record of who checked each one against the certified drawings;
+- the integrated systems test report, stating what was demonstrated, what was not and what limitations remain;
+- for an operating asset, the load it carries against the certified capacity, and how maintenance and changes are controlled.
+
+If an operating asset carries only a design certificate, I ask why the constructed facility was never certified.
+
+## Keeping the certified topology
+
+When my firm acts as owner’s engineer, every substitution, value-engineering proposal and change to a control sequence or a distribution route is checked against the certified design, on the drawings the assessor will read. Drawings, calculations, narratives and test evidence are kept in agreement, because the assessment compares them.
+
+At the integrated systems test, the facility runs at design load with load banks in place of the IT. It goes through loss of utility, generator transfer, UPS discharge, each chiller and pump out of service, controls failover, and the maintenance states Tier III requires. I plan the constructed-facility demonstrations with that test, so that one set of witnessed results serves the certifier and the client. In my responsibility matrices, the party that installed a system never accepts its own test.
+
+The record is what survives handover: signed results with the witnesses named, deviations and their closure, protection settings as applied, the sequence of operations as finally tested, and an index linking each requirement to the test that demonstrated it. My firm sells no equipment and operates no facility. Uptime Institute alone awards the certificate, and no consultant can guarantee it.
+
+If you are relying on a Tier III claim, ask for the certificate, the phase and the test record, not the announcement. If you own the facility, appoint an owner’s engineer before value engineering starts. Write the integrated systems test and the certification demonstrations into the tender documents, and keep the record for the life of the building.

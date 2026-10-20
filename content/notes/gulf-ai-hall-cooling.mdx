@@ -1,8 +1,39 @@
 ---
 title: In the Gulf, cooling an AI hall trades power against water
 summary: Direct liquid cooling runs on warmer water and cuts chiller hours, but the summer peak still needs compressors or evaporation.
-date: 2026-11-01
-draft: true
+date: 2026-10-20
+draft: false
 ---
 
-[Draft. The title and the summary are a proposal; the piece is to be written in Abdelilah Sidqui's own words. Delete this file or set draft to false once it is.]
+Direct liquid cooling changes where the heat of an AI hall goes, but it does not change the Gulf summer. Cold plates run on much warmer water than an air-cooled hall needs, so the plant can reject heat without compressors for more hours of the year. At the summer peak, with the dry-bulb above 45 °C and the wet-bulb above 30 °C, a dry cooler alone can no longer carry the load. The heat then leaves through compressors, which spend power, or through evaporation, which spends water. The owner is choosing between kWh and litres, and the brief should say which.
+
+## What warm water buys
+
+A cold plate carries the heat of a processor or an accelerator straight into a liquid loop, and the chip tolerates warm coolant. A coolant distribution unit passes that heat to the facility water, which can therefore run warm too. The warmer that water, the more hours a dry cooler can reject the heat with no compressor. When compressors do run, they work across a smaller lift, because the water they produce is warmer.
+
+The hours of that gain depend on the supply temperature the IT vendor allows, the approach of each heat exchanger between the chip and the outdoor air, and the climate file of the site. I count them from the 8,760 hours of a typical year, run through the control sequence, rather than from bin averages.
+
+## Where the summer stops it
+
+A dry cooler cannot return water cooler than the air passing over it, and in a Gulf summer that air is above 45 °C. For a dry cooler to carry the peak alone, the cold plates would have to accept coolant hotter than the outdoor air. The margin needed is the approach of the dry cooler plus that of the coolant distribution unit. I ask the IT vendor in writing whether its equipment accepts that at full load.
+
+An evaporative tower cools water towards the wet-bulb but never reaches it. With the wet-bulb above 30 °C, a tower can still serve a warm loop at the peak, if the facility water may run several degrees above the wet-bulb. The cost is water. Evaporating one litre absorbs about 2.4 MJ, so a tower rejecting 1 MW by evaporation alone loses roughly 1,500 litres an hour, before blowdown. Where the mains water is desalinated, each of those litres has already cost energy before it reaches the site.
+
+Compressors spend power instead. They are sized for the hottest hour, and so is everything that feeds them: transformers, generators and the utility capacity the owner must secure.
+
+## The air system stays
+
+A liquid-cooled rack still rejects part of its heat to air. The cold plates take the processors and accelerators, while memory, power supplies, drives and switches are often still cooled by fans. Storage and network rows are usually air-cooled outright. The share depends on the server, and I ask the vendor for it. The liquid-cooled facility my firm designed in the UAE therefore has two loops, a warm one for the coolant distribution units and a conventional one for the air.
+
+That air must reach the IT within the ASHRAE recommended range: 18 to 27 °C for classes A1 to A4, and 18 to 22 °C for class H1, added in 2021 for high-density air-cooled equipment. The coil water must be colder than the air it produces. In a Gulf summer neither a tower nor a dry cooler makes water below the wet-bulb, so the air side runs on compressors through the hot months. A rear-door heat exchanger moves the coil to the rack under the same limit.
+
+## What I ask for in the brief
+
+Four items settle the trade.
+
+- The peak design condition: the climate file, the percentile or return period, and the dry-bulb and wet-bulb stated separately, since dry coolers are sized on one and towers on the other.
+- The water source and its cost: mains, treated sewage effluent or a private supply, the quantity committed in writing, the tariff, and the water quality that sets the blowdown.
+- The fallback when either resource is short: what carries the peak if the water stops, how many hours of storage cover it, and how the coolant keeps moving while the heat rejection plant restarts after a power transfer. A cold plate has little thermal mass, and a loss of flow is measured in seconds.
+- The test that proves the summer case: the integrated systems test at full load, with load banks that heat water as well as air and part of the heat rejection out of service to reproduce the peak, then a repeat in the first summer.
+
+Put the annual kWh and the annual litres of each heat rejection option side by side, at the first-phase load and at the final load. Then size the peak on the resource the site can secure in writing, and design the other as the fallback. The warm loop saves energy in the cool months, and the plant is still built for August.

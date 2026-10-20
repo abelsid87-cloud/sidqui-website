@@ -30,8 +30,18 @@ describe('talks', () => {
 })
 
 describe('notes', () => {
-  it('never publishes a draft', () => {
-    for (const note of getPublishedNotes()) expect(note.draft).toBe(false)
-    expect(getNote('gulf-ai-hall-cooling')).toBeNull()
+  it('publishes the three launch notes and nothing marked draft', () => {
+    const notes = getPublishedNotes()
+    expect(notes.map(n => n.slug).sort()).toEqual(['africa-brief-starts-with-the-utility', 'gulf-ai-hall-cooling', 'tier-iii-design-certificate'])
+    for (const note of notes) expect(note.draft).toBe(false)
+    expect(getNote('no-such-note')).toBeNull()
+  })
+  it('keeps the notes in the house style', () => {
+    for (const meta of getPublishedNotes()) {
+      const note = getNote(meta.slug)!
+      expect(note.content).not.toMatch(/—/)
+      expect(note.content).not.toMatch(/data centre/i)
+      expect(note.content.split(/\s+/).length).toBeGreaterThan(600)
+    }
   })
 })
