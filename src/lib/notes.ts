@@ -9,6 +9,8 @@ export interface NoteMeta {
   /** ISO date; shown on the note's own page, never in the lists. */
   date: string
   draft: boolean
+  /** A drawing from scripts/drawings and its caption, when the note has one. */
+  drawing?: { name: string; caption: string }
 }
 
 export interface Note extends NoteMeta {
@@ -24,7 +26,8 @@ function read(slug: string): Note | null {
   // YAML reads an unquoted 2026-10-20 as a Date; either form is accepted and kept as the ISO day.
   const date = data.date instanceof Date ? data.date.toISOString().slice(0, 10) : data.date
   if (typeof data.title !== 'string' || typeof data.summary !== 'string' || typeof date !== 'string') return null
-  return { slug, title: data.title, summary: data.summary, date, draft: data.draft === true, content }
+  const drawing = typeof data.drawing === 'string' && typeof data.drawingCaption === 'string' ? { name: data.drawing, caption: data.drawingCaption } : undefined
+  return { slug, title: data.title, summary: data.summary, date, draft: data.draft === true, drawing, content }
 }
 
 /** Published notes, newest first. Drafts never leave the content folder. */

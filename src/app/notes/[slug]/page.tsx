@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { MDXRemote } from 'next-mdx-remote/rsc'
+import Drawing from '@/components/Drawing'
 import { getNote, getPublishedNotes } from '@/lib/notes'
 import { pageMetadata } from '@/lib/seo'
 import { SITE } from '@/lib/site'
@@ -31,6 +32,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
       <h1 className="page-title">{note.title}</h1>
       <p className="lead muted">{note.summary}</p>
       <p className="mono muted note-date">{SITE.name} · {shortDate(note.date)}</p>
+      {note.drawing && <Drawing name={note.drawing.name} caption={note.drawing.caption} />}
       <div className="prose">
         <MDXRemote source={note.content} />
       </div>
