@@ -1,0 +1,43 @@
+import fs from 'fs'
+import path from 'path'
+import matter from 'gray-matter'
+
+export interface NoteMeta {
+  slug: string
+  title: string
+  summary: string
+  /** ISO date; shown on the note's own page, never in the lists. */
+  date: string
+  draft: boolean
+}
+
+export interface Note extends NoteMeta {
+  content: string
+}
+
+const NOTES_DIR = path.join(process.cwd(), 'content/notes')
+
+function read(slug: string): Note | null {
+  const file = path.join(NOTES_DIR, `${slug}.mdx`)
+  if (!fs.existsSync(file)) return null
+  const { data, content } = matter(fs.readFileSync(file, 'utf8'))
+  if (typeof data.title !== 'string' || typeof data.summary !== 'string' || typeof data.date !== 'string') return null
+  return { slug, title: data.title, summary: data.summary, date: data.date, draft: data.draft === true, content }
+}
+
+/** Published notes, newest first. Drafts never leave the content folder. */
+export function getPublishedNotes(): NoteMeta[] {
+  if (!fs.existsSync(NOTES_DIR)) return []
+  return fs
+    .readdirSync(NOTES_DIR)
+    .filter(f => f.endsWith('.mdx'))
+    .map(f => read(f.replace(/\.mdx$/, '')))
+    .filter((n): n is Note => n !== null && !n.draft)
+    .sort((a, b) => (a.date < b.date ? 1 : -1))
+    .map(({ content: _content, ...meta }) => meta)
+}
+
+export function getNote(slug: string): Note | null {
+  const note = read(slug)
+  return note && !note.draft ? note : null
+}
