@@ -1,0 +1,43 @@
+---
+title: A converted mining site sells you the grid, not the data center
+summary: Bitcoin mines are being turned into AI factories because they hold energised grid capacity. The usable number is the IT figure after the cooling plant and redundancy, and everything inside the fence is re-engineered.
+date: 2026-10-22
+draft: false
+drawing: grid-number
+drawingCaption: "Figure 04. From the grid number to the IT number. A 100 MW connection feeds the cooling plant and the losses first, then the redundant distribution, and reaches the racks as about 65 MW of IT. Typical arrangement, no project."
+---
+
+In the past eighteen months the fastest way to put AI capacity on the grid in the United States has been to buy a bitcoin mine. Galaxy delivered 133 MW of IT to CoreWeave in July 2026 at Helios, Texas, on a site it bought from a miner in 2022. Riot leased 25 MW at Rockdale to AMD in January 2026. TeraWulf and Cipher have leased hundreds of megawatts at their mining sites, with Google standing behind the tenant. I follow these deals closely, because the same logic is arriving in the markets I work in, and because the proposals that reach me as a director describe the asset in one number, the megawatts at the fence.
+
+That number is real. It is also the only thing on the site that an AI factory can use as it stands.
+
+## What is actually for sale
+
+A mining site is built for the lowest cost per hash. Each block of miners sits behind one transformer and one board, with no UPS and no generators, because the load can be switched off in seconds and often is, when the grid pays for it. Cooling is outside air through the racks, or immersion tanks on dry coolers. The buildings are light. What the operator holds that a new data center waits years for is the grid connection, the substation and the permits, in a market where a substation transformer takes 75 to 110 weeks and a large step-up transformer up to three years.
+
+So the buyer is paying for the connection. The data center still has to be built inside it.
+
+## From the grid number to the IT number
+
+The drawing above is the arithmetic I run first. Take 100 MW at the fence. The cooling plant, the pumps and the losses in distribution take their share before any rack is reached, and with liquid cooling that share is smaller than it used to be but not zero, so about 80 MW is left for the IT paths. Then comes redundancy. An AI tenant will not accept a single transformer and a single board between the grid and the rack, so the single-path lines are regrouped so that any four of five carry the full load. That holds a fifth back. The racks see about 65 MW.
+
+Galaxy's own figures say the same: 133 MW of IT from about 200 MW of gross site power. A site sold at its grid number delivers about two thirds of it as capacity that can be leased, and the commercial plan should start from the IT figure, room by room.
+
+## The decision that moves the cost
+
+Conversion figures look cheap because the grid is already paid for. Riot reported US$89.8 million for its first 25 MW at Rockdale, US$3.6 million per MW of IT. IREN put a liquid-cooled building of 50 MW of IT on its energised site at US$300 to 350 million, US$6 to 7 million per MW. The spread between those two numbers is mostly scope, and the largest item in the scope is backup.
+
+A mining site has none. NVIDIA's current reference design for an AI factory puts the network core and the mechanical plant on UPS and N+2 generators and leaves the GPU compute load off the UPS. Many enterprise and sovereign tenants still expect UPS and generators on all of the IT load, and a fully redundant backup system costs in the order of US$2 to 3 million per MW at 2026 rates, close to the whole of Riot's retrofit figure. It also sets the date: diesel generators of 1.5 to 3 MW are quoted at 50 to 78 weeks, larger sets at up to 110. The availability model for each class of load belongs in the tenant agreement before the design starts, because it decides both the cost and the year of first delivery.
+
+## The load has to stay connected
+
+The quietest change is in how the site behaves on the grid. A mining load is a grid resource; it drops off when asked. An AI load has to stay on. In July 2024 a transmission fault in Northern Virginia caused about 1,500 MW of data center load to drop at once, as sites transferred to their UPS and did not come back for hours. NERC issued a Level 3 alert on large computational loads in May 2026, Texas approved ride-through requirements for loads of 75 MW and above in July, and Ireland's regulator followed in September. For a converted site the grid interface becomes a design deliverable: UPS settings for ride-through, power caps at the racks, storage sized in a grid study, and a transient model of the facility for the operator. The operator that once paid the site to switch off will now require it to stay on.
+
+## What I would ask before signing
+
+- The capacity in MW of IT, room by room, after the cooling plant and after redundancy, with the topology that produces it.
+- The backup scope the tenant has agreed in writing, by class of load, and the generator and UPS delivery dates that follow from it.
+- The condition report on the transformers, switchgear and heat rejection plant that are to be reused, and the structural survey of any hall meant to carry racks of more than a tonne.
+- The grid operator's requirements for a large load at that connection, and the study that shows the site meets them.
+
+My firm's method for these conversions, system by system, is in [a longer article on ubik.ae](https://ubik.ae/insights/mining-sites-to-ai-factories). The short version is the drawing: the grid number is where the work starts, and the IT number is what can be sold.

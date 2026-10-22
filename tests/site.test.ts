@@ -38,9 +38,9 @@ describe('talks', () => {
 })
 
 describe('notes', () => {
-  it('publishes the three launch notes and nothing marked draft', () => {
+  it('publishes the four notes and nothing marked draft', () => {
     const notes = getPublishedNotes()
-    expect(notes.map(n => n.slug).sort()).toEqual(['africa-brief-starts-with-the-utility', 'gulf-ai-hall-cooling', 'tier-iii-design-certificate'])
+    expect(notes.map(n => n.slug).sort()).toEqual(['a-mining-site-sells-you-the-grid', 'africa-brief-starts-with-the-utility', 'gulf-ai-hall-cooling', 'tier-iii-design-certificate'])
     for (const note of notes) expect(note.draft).toBe(false)
     expect(getNote('no-such-note')).toBeNull()
   })
@@ -85,7 +85,7 @@ describe('the feed', () => {
     expect(xml).toMatch(/^<\?xml version="1.0" encoding="UTF-8"\?><rss version="2.0"/)
     for (const note of getPublishedNotes()) {
       expect(xml).toContain(`<link>${SITE.url}/notes/${note.slug}</link>`)
-      expect(xml).toContain('<pubDate>Tue, 20 Oct 2026 00:00:00 GMT</pubDate>')
+      expect(xml).toContain(`<pubDate>${new Date(`${note.date}T00:00:00Z`).toUTCString()}</pubDate>`)
     }
     expect(xml).not.toMatch(/[^&]&[^a]/)
   })
