@@ -19,7 +19,7 @@ So the buyer is paying for the connection. The data center still has to be built
 
 ## From the grid number to the IT number
 
-The drawing above is the arithmetic I run first. Take 100 MW at the fence. The cooling plant, the pumps and the losses in distribution take their share before any rack is reached, and with liquid cooling that share is smaller than it used to be but not zero, so about 80 MW is left for the IT paths. Then comes redundancy. An AI tenant will not accept a single transformer and a single board between the grid and the rack, so the single-path lines are regrouped so that any four of five carry the full load. That holds a fifth back. The racks see about 65 MW.
+The drawing above is the arithmetic I run first. Take 100 MW at the fence. The cooling plant, the pumps and the losses in distribution take their share before any rack is reached, and with liquid cooling that share is smaller than it used to be but not zero, so about 80 MW is left for the IT paths. Then comes redundancy. An AI tenant will not accept a single transformer and a single board between the grid and the rack, so the single-path lines are regrouped so that the loss of any one of them leaves the others carrying the full load. That holds a share back. The racks see about 65 MW.
 
 Galaxy's own figures say the same: 133 MW of IT from about 200 MW of gross site power. A site sold at its grid number delivers about two thirds of it as capacity that can be leased, and the commercial plan should start from the IT figure, room by room.
 

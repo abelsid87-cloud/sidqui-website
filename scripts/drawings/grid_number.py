@@ -14,7 +14,7 @@ BARS = [  # label, MW of 100, value label, two lines of explanation
     ("After the cooling plant and losses", 80, "about 80 MW",
      ("Chillers, pumps, fans, dry coolers and", "the losses in distribution take a share")),
     ("After redundancy", 65, "about 65 MW of IT",
-     ("Five lines to make four: each carries", "the others’ load, so a fifth is held back")),
+     ("The lines carry each other’s load,", "so a share of their rating is held back")),
 ]
 
 
