@@ -172,7 +172,7 @@ a.row:hover h3 { color: var(--accent); }
 /* Wide screens: the rail sits beside the text and stays in view; the caption sits beside the drawing, on the rail's column */
 @media (min-width: 1024px) {
   .note { grid-template-columns: minmax(0, 1fr) var(--rail); column-gap: var(--gutter); }
-  .note-head, .note > .plate, .read-next { grid-column: 1 / -1; }
+  .note-head, .note > .plate { grid-column: 1 / -1; }
   .note-body { grid-column: 1; grid-row: 3; margin-top: 44px; }
   .note-rail { grid-column: 2; grid-row: 3; margin-top: 44px; position: sticky; top: 32px; align-self: start; }
   .note > .plate { display: grid; grid-template-columns: minmax(0, 1fr) var(--rail); column-gap: var(--gutter); align-items: end; padding: 20px 0 16px; }

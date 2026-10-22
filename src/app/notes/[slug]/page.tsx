@@ -25,7 +25,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   return pageMetadata({ title: note.title, description: note.summary, path: `/notes/${slug}`, image: `/og/${slug}.jpg`, published: note.date })
 }
 
-/** Title and summary across the page, the drawing across the page, then the text beside a rail with the contents. */
+/**
+ * Title and summary across the page, the drawing across the page, then the text beside a rail with the contents.
+ * The text and the rail share a grid of their own: a sticky item in a grid is held by the grid container, not by
+ * its cell, so "Read next" sits outside the grid or the rail would run on into it.
+ */
 export default async function NotePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const note = getNote(slug)
@@ -35,7 +39,8 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
   const ask = `mailto:${SITE.email}?subject=${encodeURIComponent(note.title)}`
   const next = getReadNext(slug)
   return (
-    <article className="note">
+    <article>
+      <div className="note">
       <header className="note-head">
         <p className="mono eyebrow"><Link href="/notes">Notes</Link></p>
         <h1 className="note-title">{note.title}</h1>
@@ -66,6 +71,7 @@ export default async function NotePage({ params }: { params: Promise<{ slug: str
           <p className="mono muted">{SITE.name} · {SITE.city} · {shortDate(note.date)}</p>
           <p className="muted">Questions and corrections are welcome at <a href={ask}>{SITE.email}</a>.</p>
         </footer>
+      </div>
       </div>
 
       {next.length > 0 && (
