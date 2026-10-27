@@ -6,8 +6,12 @@ export interface Talk {
   city: string
   /** ISO date of the session. */
   date: string
-  /** The session page or the recording. */
+  /** The session page. */
   href?: string
+  /** The recording, once the organiser has published it. */
+  recording?: { href: string; label: string }
+  /** A photograph of the session, shown on the Talks page; the file lives in public/talks at 2000 px wide. */
+  photo?: { src: string; width: number; height: number; alt: string; caption: string }
 }
 
 /** Talks and panels, most recent first. Boardroom sessions are private and are not listed. */
@@ -19,6 +23,14 @@ export const TALKS: Talk[] = [
     city: 'Dubai',
     date: '2026-10-26',
     href: 'https://www.datacenterdynamics.com/en/dcdconnect-live/mena/2026/session-060faba0-1327-4e4a-a4a4-b186d04a792a/',
+    recording: { href: 'https://vimeo.com/1239422288#t=1h32m30s', label: 'Watch the recording, DCD on Vimeo, from 1:32:30' },
+    photo: {
+      src: '/talks/dcd-connect-mena-2026.jpg',
+      width: 2000,
+      height: 1125,
+      alt: 'The AI at scale panel on the main stage of DCD Connect MENA 2026 in Dubai, Abdelilah Sidqui second from the right',
+      caption: 'DCD Connect MENA, Dubai, 26 October 2026. The AI at scale panel with Himmath Mohammed of Gulf Data Hub, Tom Bosmans of BAC, Yashnath Issur of Nxtra Africa and Gabriella Gillett-Perez of DCD.',
+    },
   },
 ]
 

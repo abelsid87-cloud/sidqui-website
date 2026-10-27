@@ -196,3 +196,9 @@ a.row:hover h3 { color: var(--accent); }
   .plate { break-inside: avoid; }
   a { color: inherit; text-decoration: none; }
 }
+
+/* A photograph of a talk, across the page, with its caption */
+.talk-photo { margin: 8px 0 0; }
+.talk-photo img { width: 100%; height: auto; background: var(--plate); }
+.row h3 a { text-decoration: none; }
+.row h3 a:hover { color: var(--accent); }
